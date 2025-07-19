@@ -1,5 +1,6 @@
 package com.cafemate.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import com.cafemate.dto.SignupRequest;
 import com.cafemate.entity.User;
 import com.cafemate.repository.UserRepository;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -29,8 +31,8 @@ public class AuthController {
 
 		// Convert DTO → Entity
 		User user = new User();
-		user.setName(request.getName());
-		user.setSurname(request.getSurname());
+		user.setFirstName(request.getFirstName());
+		user.setLastName(request.getLastName());
 		user.setEmail(request.getEmail());
 		user.setPassword(request.getPassword());
 
